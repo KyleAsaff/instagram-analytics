@@ -20,7 +20,6 @@ class Application extends Controller {
     val client = new Client("http://localhost:9200")
     val result = client.search(index = "popular", query = "{\"query\": { \"match_all\": {} }").map(_.getResponseBody)
     println(result)
-    
     Client.shutdown()
     Ok("Start Date: "+start+" End Date:"+end)
   }
